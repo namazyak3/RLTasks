@@ -1,0 +1,25 @@
+# OS・エディタ固有ファイル
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+![Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# 一時ファイル
+*.tmp
+*.old
+*.orig
+*.log
+
+*.unitypackage
