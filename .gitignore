@@ -12,6 +12,9 @@ Desktop.ini
 [Mm]emoryCaptures/
 UserSettings/
 
+# ML-Agents
+[Rr]esults/
+
 # VSCode
 .vscode/
 *.code-workspace

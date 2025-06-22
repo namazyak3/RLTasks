@@ -1,13 +1,13 @@
 behaviors:
   CubeAgent:
     trainer_type: ppo
-    max_steps: 1_000_000
+    max_steps: 10_000_000
     time_horizon: 1_000
-    summary_freq: 10_000
+    summary_freq: 100_000
     keep_checkpoints: 5
     hyperparameters:
       batch_size: 1024
-      buffer_size: 10240
+      buffer_size: 20480
       learning_rate: 3.0e-4
       beta: 5.0e-3
       epsilon: 0.2
@@ -15,12 +15,18 @@ behaviors:
       num_epoch: 3
     network_settings:
       vis_encode_type: simple
+      normalize: true
       hidden_units: 128
       num_layers: 2
     reward_signals:
       extrinsic:
-        gamma: 0.99
         strength: 1.0
+        gamma: 0.99
+      curiosity:
+        strength: 0.005
+        gamma: 0.99
+        encoding_size: 128
+        learning_rate: 3.0e-4
 environment_parameters:
   wall_height:
     curriculum:
@@ -30,7 +36,7 @@ environment_parameters:
           measure: reward
           behavior: CubeAgent
           signal_smoothing: true
-          min_lesson_length: 100
+          min_lesson_length: 1000
           threshold: 0.8
       - name: LowWall
         value:
@@ -42,7 +48,7 @@ environment_parameters:
           measure: reward
           behavior: CubeAgent
           signal_smoothing: true
-          min_lesson_length: 100
+          min_lesson_length: 1000
           threshold: 0.8
       - name: HighWall
         value:
@@ -54,4 +60,4 @@ environment_parameters:
           measure: reward
           behavior: CubeAgent
           signal_smoothing: true
-          min_lesson_length: 100
+          min_lesson_length: 1000

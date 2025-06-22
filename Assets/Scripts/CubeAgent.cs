@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
+using Unity.VisualScripting;
 
 public class CubeAgent : Agent
 {
@@ -60,6 +61,11 @@ public class CubeAgent : Agent
         {
             rb.AddForce(0f, jumpForce, 0f, ForceMode.Impulse);
         }
+
+        // スイッチとの距離に応じて微小な報酬
+        float distanceToTarget = Vector3.Distance(this.transform.position, sw.position);
+        float reward = Mathf.Clamp(1.0f - distanceToTarget / 15, 0.0f, 1.0f);
+        AddReward(reward * 0.001f);
 
         // 落下したらエピソード終了
         if (this.transform.localPosition.y < -1f)

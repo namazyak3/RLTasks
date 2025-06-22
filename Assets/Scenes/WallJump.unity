@@ -671,8 +671,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 524374802}
   m_SensorName: FirstPersonCameraSensor
-  m_Width: 24
-  m_Height: 24
+  m_Width: 84
+  m_Height: 84
   m_Grayscale: 1
   m_ObservationType: 0
   m_RuntimeCameraEnable: 0
@@ -688,7 +688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1144,7 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
-      BranchSizes: 01000000
+      BranchSizes: 02000000
     VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
